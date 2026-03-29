@@ -3,87 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GIA Digital Systems</title>
-
+  <meta name="description" content="GIA Digital Solutions helps modern businesses automate operations with AI and digital efficiency systems.">
+  <title>GIA Digital Solutions | Automation, AI & Digital Efficiency</title>
   <style>
+    :root {
+      --bg: #070b16;
+      --surface: #11182c;
+      --surface-2: #17213b;
+      --accent: #47b2ff;
+      --accent-2: #66ffd6;
+      --text: #e9eefc;
+      --muted: #b0bddf;
+      --shadow: 0 20px 60px rgba(9, 20, 45, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0b1f3a, #0f2f5c);
-      color: white;
-      text-align: center;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(71, 178, 255, 0.22), transparent 35%),
+        radial-gradient(circle at 85% 10%, rgba(102, 255, 214, 0.2), transparent 30%),
+        linear-gradient(135deg, #070b16 0%, #0d1324 45%, #101a31 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
     }
 
     .container {
-      padding: 80px 20px;
-      max-width: 900px;
-      margin: auto;
+      width: min(1100px, 92%);
+      margin: 0 auto;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+    header {
+      padding: 72px 0 56px;
+      text-align: center;
     }
 
-    h2 {
-      font-weight: normal;
-      color: #b0c4de;
-      margin-bottom: 40px;
+    .brand {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin: 0;
+      letter-spacing: 0.4px;
     }
 
-    .cta a {
+    .tagline {
+      margin: 10px auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.3vw, 1.35rem);
+      max-width: 760px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 56px;
+    }
+
+    .hero-panel,
+    .hero-stats {
+      background: linear-gradient(165deg, rgba(23, 33, 59, 0.92), rgba(17, 24, 44, 0.92));
+      border: 1px solid rgba(162, 184, 246, 0.18);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: clamp(1.3rem, 3vw, 2rem);
+    }
+
+    .hero-panel h2 {
+      margin-top: 0;
+      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      line-height: 1.3;
+    }
+
+    .hero-panel p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
       display: inline-block;
-      padding: 15px 35px;
-      background: #1e90ff;
-      color: white;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-top: 20px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    .section {
-      margin-top: 80px;
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), #4f8eff);
+      color: #071225;
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border: 1px solid rgba(176, 189, 223, 0.4);
+    }
+
+    .hero-stats {
+      display: grid;
+      gap: 14px;
+      align-content: center;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(176, 189, 223, 0.18);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--accent-2);
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+    }
+
+    .services,
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 46px;
     }
 
     .card {
-      background: rgba(255,255,255,0.05);
+      background: linear-gradient(180deg, rgba(23, 33, 59, 0.84), rgba(17, 24, 44, 0.92));
+      border: 1px solid rgba(162, 184, 246, 0.18);
+      border-radius: 18px;
       padding: 20px;
-      margin: 15px auto;
-      max-width: 500px;
-      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .highlight {
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .contact {
+      margin-bottom: 68px;
+      text-align: center;
+      background: linear-gradient(160deg, rgba(71, 178, 255, 0.12), rgba(102, 255, 214, 0.08));
+      border-radius: 20px;
+      border: 1px solid rgba(162, 184, 246, 0.22);
+      padding: clamp(1.3rem, 4vw, 2rem);
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-top: 8px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: #93a3cd;
+      border-top: 1px solid rgba(176, 189, 223, 0.2);
+      padding: 18px 0 28px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .services,
+      .steps {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-
 <body>
+  <div class="container">
+    <header>
+      <h1 class="brand">GIA Digital Solutions</h1>
+      <p class="tagline">Automation, AI &amp; Digital Efficiency for Modern Businesses</p>
+    </header>
 
-<div class="container">
-  <h1>GIA Digital Systems</h1>
-  <h2>Automation | AI | Process Optimization</h2>
+    <main>
+      <section class="hero" aria-label="Main presentation">
+        <article class="hero-panel">
+          <h2>Transform operations with intelligent automation.</h2>
+          <p>
+            We design and deploy practical AI systems, workflow automations, and digital tools that help your team
+            move faster, reduce repetitive work, and make better decisions.
+          </p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="mailto:hello@giadigitalsystems.com?subject=Discovery%20Call%20Request">
+              Book a Discovery Call
+            </a>
+            <a class="btn btn-secondary" href="#services">Explore Services</a>
+          </div>
+        </article>
 
-  <div class="cta">
-    <a href="mailto:hello@giadigitalsystems.com">
-      Get in Touch
-    </a>
+        <aside class="hero-stats" aria-label="Key outcomes">
+          <div class="stat">
+            <strong>40%+</strong>
+            Average reduction in manual repetitive tasks.
+          </div>
+          <div class="stat">
+            <strong>24/7</strong>
+            Automation pipelines that keep your business moving.
+          </div>
+          <div class="stat">
+            <strong>Data-Driven</strong>
+            Dashboards and AI insights for faster strategic decisions.
+          </div>
+        </aside>
+      </section>
+
+      <section id="services" aria-labelledby="services-title">
+        <h2 class="section-title" id="services-title">Our Core Services</h2>
+        <div class="services">
+          <article class="card">
+            <h3>AI Workflow Automation</h3>
+            <p>From lead management to internal operations, we automate critical workflows with reliable AI-assisted logic.</p>
+          </article>
+          <article class="card">
+            <h3>Digital Process Optimization</h3>
+            <p>We map your processes, remove bottlenecks, and build systems that improve speed, quality, and consistency.</p>
+          </article>
+          <article class="card">
+            <h3>Systems Integration</h3>
+            <p>We connect CRMs, project tools, databases, and communication platforms into one <span class="highlight">efficient digital ecosystem</span>.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="steps-title">
+        <h2 class="section-title" id="steps-title">How We Work</h2>
+        <div class="steps">
+          <article class="card">
+            <h3>1. Audit & Strategy</h3>
+            <p>We evaluate your current operations and identify the highest-impact automation opportunities.</p>
+          </article>
+          <article class="card">
+            <h3>2. Build & Integrate</h3>
+            <p>Our team designs and deploys custom workflows, AI assistants, and integrations tailored to your business.</p>
+          </article>
+          <article class="card">
+            <h3>3. Optimize & Scale</h3>
+            <p>We monitor outcomes, fine-tune performance, and support scaling as your business grows.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" aria-labelledby="contact-title">
+        <h2 class="section-title" id="contact-title">Ready to modernize your business operations?</h2>
+        <p>Let's discuss how GIA Digital Solutions can create measurable efficiency gains for your team.</p>
+        <a class="btn btn-primary" href="mailto:hello@giadigitalsystems.com?subject=Automation%20Consultation">
+          Contact GIA Digital Solutions
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 GIA Digital Solutions · Automation, AI &amp; Digital Efficiency
+    </footer>
   </div>
-
-  <div class="section">
-    <h2>What we do</h2>
-
-    <div class="card">AI-driven automation solutions</div>
-    <div class="card">Process optimization</div>
-    <div class="card">System integrations</div>
-  </div>
-
-  <div class="section">
-    <h2>Our mission</h2>
-    <p>
-      We help companies reduce costs, eliminate manual work and scale operations through intelligent systems.
-    </p>
-  </div>
-
-</div>
-
 </body>
 </html>
